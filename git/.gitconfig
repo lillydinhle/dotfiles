@@ -1,0 +1,39 @@
+[user]
+	name = Lilly Dinh-le
+	email = lilly.dinhle@prodigygame.com
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[alias]
+    amend = commit --amend --no-edit
+    conflict = diff --name-only --diff-filter=U
+    delete-branches = "!git branch | grep \"$1\" | xargs git branch -D"
+    edit = "!f() { GIT_SEQUENCE_EDITOR='sed -i -e 1s/^pick/edit/' git rebase -i \"$@\"^; }; f"
+    lg = log --graph --pretty=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --decorate --abbrev-commit -10
+    purge-branches = "!git branch --merged | grep  -v '\\*\\|master' | xargs -n 1 git branch -d; git fetch --prune"
+    push-and-track = push -u origin HEAD
+    reword = "!f() { GIT_SEQUENCE_EDITOR='sed -i -e 1s/^pick/reword/' git rebase -i \"$@\"^; }; f"
+    uncommit = reset HEAD^
+    wip = "!git add --all; git commit -nm 'WIP'"
+
+[push]
+    default = simple
+
+[pull]
+	rebase = false
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[credential]
+	helper = osxkeychain
+
+[core]
+    editor = code --wait
+	ignorecase = true

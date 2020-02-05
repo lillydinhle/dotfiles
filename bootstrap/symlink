@@ -17,6 +17,7 @@ fi
 
 __symlink() {
   ln -s "${DOTFILES_DIRECTORY}/zsh/.zshrc" "${HOME}/.zshrc"
+  ln -s "${DOTFILES_DIRECTORY}/git/.gitconfig" "${HOME}/.gitconfig"
 }
 
 __symlink
