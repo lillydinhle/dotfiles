@@ -6,3 +6,6 @@ local
 
 # Brew
 Brewfile.lock.json
+
+# Mac
+.DS_Store
