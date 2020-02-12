@@ -18,6 +18,11 @@ fi
 __symlink() {
   ln -s "${DOTFILES_DIRECTORY}/zsh/.zshrc" "${HOME}/.zshrc"
   ln -s "${DOTFILES_DIRECTORY}/git/.gitconfig" "${HOME}/.gitconfig"
+
+  # Visual studio code settings
+  ln -s "${DOTFILES_DIRECTORY}/vscode/settings.json" "${HOME}/Library/Application Support/Code/User/settings.json"
+  ln -s "${DOTFILES_DIRECTORY}/vscode/keybindings.json" "${HOME}/Library/Application Support/Code/User/keybindings.json"
+  ln -s "${DOTFILES_DIRECTORY}/vscode/snippets" "${HOME}/Library/Application Support/Code/User/snippets"
 }
 
 __symlink
