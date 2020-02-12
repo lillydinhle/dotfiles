@@ -3,3 +3,6 @@ local
 # Zsh
 .zcompdump
 .zinit
+
+# Brew
+Brewfile.lock.json
