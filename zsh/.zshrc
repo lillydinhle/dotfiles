@@ -1,6 +1,7 @@
 # .zshrc
 
 source "${HOME}/.dotfiles/shell/vars.sh"
+source "${HOME}/.dotfiles/shell/helpers.sh"
 
 # ============================================================================
 # Options
@@ -126,6 +127,23 @@ bindkey '^[[B'  history-search-forward
 # PgUp/Dn navigate through history like regular up/down
 bindkey '^[[5~' up-history
 bindkey '^[[6~' down-history
+
+# ============================================================================
+# zplugin
+# ============================================================================
+if __lilly_has 'wget'; then
+  __lilly_source "${ZSH_CONFIG_DIRECTORY}/.zinit/bin/zplugin.zsh" || {
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)" \
+    && source "${ZSH_CONFIG_DIRECTORY}/.zinit/bin/zplugin.zsh"
+  }
+  __lilly_has 'zplugin' && {
+    autoload -Uz _zplugin
+    (( ${+_comps} )) && _comps[zplugin]=_zplugin
+    __lilly_source "${ZSH_CONFIG_DIRECTORY}/zplugin.zsh"
+  }
+else
+  echo '    Error: wget is required for zplugin'
+fi
 
 # ============================================================================
 # Local: can add more zplugins here
