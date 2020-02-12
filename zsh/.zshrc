@@ -74,6 +74,8 @@ zstyle ':completion:*:descriptions' format '%F{black}%B%d%b%f'
 zstyle ':completion:*' matcher-list \
   'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
+zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}
+
 # --------------------------------------------------------------------------
 # Completion: Output transformation
 # --------------------------------------------------------------------------
