@@ -1,1 +1,36 @@
-{}
+{
+  "color-highlight.markerType": "background",
+  "editor.colorDecorators": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.showExpandedAbbreviation": "never",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0,
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlack": "#4A4A4A",
+    "terminal.ansiBlue": "#6AAFC1",
+    "terminal.ansiBrightBlack": "#7F7F7F",
+    "terminal.ansiBrightBlue": "#84BAC9",
+    "terminal.ansiBrightCyan": "#84C2C2",
+    "terminal.ansiBrightGreen": "#B5D077",
+    "terminal.ansiBrightMagenta": "#FF9999",
+    "terminal.ansiBrightRed": "#E45D5D",
+    "terminal.ansiBrightWhite": "#F7F7F7",
+    "terminal.ansiBrightYellow": "#FFCE73",
+    "terminal.ansiCyan": "#6DA9A9",
+    "terminal.ansiGreen": "#A2B86D",
+    "terminal.ansiMagenta": "#F18384",
+    "terminal.ansiRed": "#D25555",
+    "terminal.ansiWhite": "#DDDDDD",
+    "terminal.ansiYellow": "#FFC458",
+    "terminal.background": "#121212",
+    "terminal.foreground": "#D2D2D2",
+    "terminal.selectionBackground": "#DDDDDD50"
+  },
+  "workbench.colorTheme": "Charcoal Oceanic Next"
+}

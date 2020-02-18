@@ -1,1 +1,88 @@
-{}
+{
+  // Place your snippets for javascriptreact here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  "New React Stateless Functional Component": {
+    "prefix": "@newsfc",
+    "body": [
+      "import React from 'react';",
+      "import PropTypes from 'prop-types';",
+      "import styled from 'styled-components';",
+      "",
+      "const ${TM_FILENAME_BASE}Styled = styled.div``;",
+      "",
+      "export default function ${TM_FILENAME_BASE}() {",
+      "\treturn (",
+      "\t\t<${TM_FILENAME_BASE}Styled>",
+      "\t\t\t$1",
+      "\t\t</${TM_FILENAME_BASE}Styled>",
+      "\t);",
+      "}",
+      ""
+    ],
+    "description": "Creates a new react stateless functional component with common react dependencies"
+  },
+  "React Stateless Functional Component": {
+    "prefix": "@sfc",
+    "body": ["function ${1:${TM_FILENAME_BASE}}() {", "\t$2", "}", ""],
+    "description": "Creates a new react stateless functional component with common react dependencies"
+  },
+  "Import React": {
+    "prefix": "@imr",
+    "body": "import React from 'react';",
+    "description": "Imports React from react"
+  },
+  "Import Styled Components": {
+    "prefix": "@imsc",
+    "body": "import styled from 'styled-components';",
+    "description": "Imports styled from styled-components"
+  },
+  "Import PropTypes": {
+    "prefix": "@impt",
+    "body": "import PropTypes from 'prop-types';",
+    "description": "Imports PropTypes from prop-types"
+  },
+  "Define PropTypes": {
+    "prefix": "@proptypes",
+    "body": ["${TM_FILENAME_BASE}.propTypes = {", "\t$1", "};"],
+    "description": "Defines prop types for a component"
+  },
+  "Define Default Props": {
+    "prefix": "@default-props",
+    "body": ["${TM_FILENAME_BASE}.defaultProps = {", "\t$1", "};"],
+    "description": "Defines default props for a component"
+  },
+  "Test": {
+    "prefix": "@test",
+    "body": [
+      "import ${TM_FILENAME_BASE/\\.test$//} from './${TM_FILENAME_BASE/\\.test$//}';",
+      "",
+      "describe('${TM_FILENAME_BASE/\\.test$//}$1', () => {",
+      "\tit('$2', () => {",
+      "\t\t$3",
+      "\t});",
+      "});",
+      ""
+    ]
+  },
+  "Desc": {
+    "prefix": "@desc",
+    "body": [
+      "describe('${1:${TM_FILENAME_BASE/\\.test$//}}', () => {",
+      "\tit('$2', () => {",
+      "\t\t$3",
+      "\t});",
+      "\t$4",
+      "});"
+    ]
+  },
+  "It": {
+    "prefix": "@it",
+    "body": ["it('$1', () => {", "\t$2", "});"]
+  },
+  "@index": {
+    "prefix": "@index",
+    "body": ["export { default } from './${TM_DIRECTORY/^.+\\/(.*)$/$1/}';"]
+  }
+}
