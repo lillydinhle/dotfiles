@@ -13,3 +13,10 @@ $ git clone https://github.com/lillydinhle/dotfiles ~/.dotfiles
 ```sh
 $ bootstrap/symlink
 ```
+
+### MacOS
+
+#### Applying terminal color scheme 🎨
+
+1. Double-click `mac/Pastel.terminal` to open your Terminal with the color scheme applied
+2. Set the color scheme as your default scheme with `Shell > Use Settings as Default`
