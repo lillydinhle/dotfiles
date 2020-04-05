@@ -1,6 +1,6 @@
 [user]
-	name = Lilly Dinh-le
-	email = lilly.dinhle@prodigygame.com
+    name = Lilly Dinh-le
+    email = lilly.dinhle@prodigygame.com
 
 [color]
     branch = auto
@@ -23,7 +23,7 @@
     default = simple
 
 [pull]
-	rebase = false
+    rebase = false
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -32,8 +32,8 @@
     required = true
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 
 [core]
     editor = code --wait
-	ignorecase = true
+    ignorecase = true
