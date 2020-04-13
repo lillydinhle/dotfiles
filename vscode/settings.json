@@ -13,6 +13,7 @@
   "explorer.confirmDragAndDrop": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.shell.osx": "/bin/zsh",
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "terminal.ansiBlack": "#4A4A4A",
