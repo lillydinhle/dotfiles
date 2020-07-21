@@ -36,5 +36,9 @@
     "terminal.foreground": "#D2D2D2",
     "terminal.selectionBackground": "#DDDDDD50"
   },
-  "workbench.colorTheme": "Charcoal Oceanic Next"
+  "workbench.colorTheme": "Charcoal Oceanic Next",
+  "debug.console.wordWrap": false,
+  "[markdown]": {
+    "editor.wordWrap": "off"
+  }
 }
