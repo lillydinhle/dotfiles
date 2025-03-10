@@ -131,21 +131,40 @@ bindkey '^[[5~' up-history
 bindkey '^[[6~' down-history
 
 # ============================================================================
-# zplugin
+# Homebrew
 # ============================================================================
-if __lilly_has 'wget'; then
-  __lilly_source "${ZSH_CONFIG_DIRECTORY}/.zinit/bin/zplugin.zsh" || {
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)" \
-    && source "${ZSH_CONFIG_DIRECTORY}/.zinit/bin/zplugin.zsh"
-  }
-  __lilly_has 'zplugin' && {
-    autoload -Uz _zplugin
-    (( ${+_comps} )) && _comps[zplugin]=_zplugin
-    __lilly_source "${ZSH_CONFIG_DIRECTORY}/zplugin.zsh"
-  }
-else
-  echo '    Error: wget is required for zplugin'
+
+if [[ -r "/opt/homebrew/bin/brew" ]]
+then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# ============================================================================
+# zinit
+# ============================================================================
+
+__lilly_has 'git' && {
+  declare -A ZINIT
+  ZINIT[HOME_DIR]="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
+
+  # part of zinit's install, found by compaudit
+  mkdir -p "${ZINIT[HOME_DIR]}" && chmod g-rwX "${ZINIT[HOME_DIR]}"
+
+  lilly_zinit_dest="${ZINIT[HOME_DIR]}/bin"
+  lilly_zinit_script="${lilly_zinit_dest}/zinit.zsh"
+  __lilly_source "$lilly_zinit_script" || {
+    # install if needed
+    command git clone https://github.com/zdharma-continuum/zinit "${lilly_zinit_dest}" &&
+      __lilly_source "$lilly_zinit_script"
+  }
+  unset lilly_zinit_dest
+  unset lilly_zinit_script
+
+  __lilly_source "${ZSH_CONFIG_DIRECTORY}/zinit.zsh" && {
+    autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
+    alias unzinit='rm -rf "${ZINIT[HOME_DIR]}"'
+  }
+}
 
 # ============================================================================
 # Local: can add more zplugins here

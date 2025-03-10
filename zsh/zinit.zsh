@@ -1,0 +1,1 @@
+zplugin light lukechilds/zsh-nvm.git
