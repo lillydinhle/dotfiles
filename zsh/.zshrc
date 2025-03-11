@@ -4,6 +4,33 @@ source "${HOME}/.dotfiles/shell/vars.sh"
 source "${HOME}/.dotfiles/shell/helpers.sh"
 
 # ============================================================================
+# zinit
+# ============================================================================
+
+__lilly_has 'git' && {
+  declare -A ZINIT
+  ZINIT[HOME_DIR]="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
+
+  # part of zinit's install, found by compaudit
+  mkdir -p "${ZINIT[HOME_DIR]}" && chmod g-rwX "${ZINIT[HOME_DIR]}"
+
+  lilly_zinit_dest="${ZINIT[HOME_DIR]}/bin"
+  lilly_zinit_script="${lilly_zinit_dest}/zinit.zsh"
+  __lilly_source "$lilly_zinit_script" || {
+    # install if needed
+    command git clone https://github.com/zdharma-continuum/zinit "${lilly_zinit_dest}" &&
+      __lilly_source "$lilly_zinit_script"
+  }
+  unset lilly_zinit_dest
+  unset lilly_zinit_script
+
+  __lilly_source "${ZSH_CONFIG_DIRECTORY}/zinit.zsh" && {
+    autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
+    alias unzinit='rm -rf "${ZINIT[HOME_DIR]}"'
+  }
+}
+
+# ============================================================================
 # Options
 # In the order of `man zshoptions`
 # ============================================================================
@@ -139,32 +166,6 @@ then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# ============================================================================
-# zinit
-# ============================================================================
-
-__lilly_has 'git' && {
-  declare -A ZINIT
-  ZINIT[HOME_DIR]="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
-
-  # part of zinit's install, found by compaudit
-  mkdir -p "${ZINIT[HOME_DIR]}" && chmod g-rwX "${ZINIT[HOME_DIR]}"
-
-  lilly_zinit_dest="${ZINIT[HOME_DIR]}/bin"
-  lilly_zinit_script="${lilly_zinit_dest}/zinit.zsh"
-  __lilly_source "$lilly_zinit_script" || {
-    # install if needed
-    command git clone https://github.com/zdharma-continuum/zinit "${lilly_zinit_dest}" &&
-      __lilly_source "$lilly_zinit_script"
-  }
-  unset lilly_zinit_dest
-  unset lilly_zinit_script
-
-  __lilly_source "${ZSH_CONFIG_DIRECTORY}/zinit.zsh" && {
-    autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
-    alias unzinit='rm -rf "${ZINIT[HOME_DIR]}"'
-  }
-}
 
 # ============================================================================
 # Local: can add more zplugins here
